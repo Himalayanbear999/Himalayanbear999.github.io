@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スマホゲーム点数計算</title>
+    <title>連盟対決点数計算</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
         .tab { display: inline-block; padding: 10px 20px; margin: 5px; cursor: pointer; background: #ddd; border-radius: 5px; }
@@ -17,21 +17,21 @@
 </head>
 <body>
 
-    <h2>スマホゲーム点数計算</h2>
+    <h2>連盟対決点数計算</h2>
 
     <!-- 曜日タブ -->
     <div>
-        <span class="tab active" onclick="showTab('monday')">月曜日</span>
+        <span class="tab" onclick="showTab('monday')">月曜日</span>
         <span class="tab" onclick="showTab('tuesday')">火曜日</span>
         <span class="tab" onclick="showTab('wednesday')">水曜日</span>
-        <span class="tab" onclick="showTab('thursday')">木曜日</span>
+        <span class="tab active" onclick="showTab('thursday')">木曜日</span>
         <span class="tab" onclick="showTab('friday')">金曜日</span>
         <span class="tab" onclick="showTab('saturday')">土曜日</span>
     </div>
 
-    <!-- 月曜日の計算機 -->
-    <div id="monday" class="content active">
-        <h3>月曜日の計算</h3>
+    <!-- 木曜日の計算機（旧：月曜日の内容） -->
+    <div id="thursday" class="content active">
+        <h3>英雄育成</h3>
 
         <label>英雄募集（回数）</label>
         <input type="number" id="recruit" value="0">
@@ -52,7 +52,7 @@
         <input type="number" id="skill" value="0">
 
         <label>ダイヤ購入（個）</label>
-        <input type="number" id="diamond-monday" value="0">
+        <input type="number" id="diamond-thursday" value="0">
 
         <label>専用武装かけら（枚）</label>
         <input type="number" id="weapon" value="0">
@@ -60,9 +60,9 @@
         <!-- ボタンの前に改行を挿入 -->
         <br><br>
 
-        <button onclick="calculateMondayScore()">計算する</button>
+        <button onclick="calculateThursdayScore()">計算する</button>
 
-        <div id="result-monday" class="result">点数: 0</div>
+        <div id="result-thursday" class="result">点数: 0</div>
     </div>
 
     <script>
@@ -78,15 +78,15 @@
             document.getElementById(day).classList.add("active");
         }
 
-        // 月曜日の点数計算
-        function calculateMondayScore() {
+        // 木曜日の点数計算（旧：月曜日の計算ルール）
+        function calculateThursdayScore() {
             let recruit = parseInt(document.getElementById("recruit").value) || 0;
             let exp = parseInt(document.getElementById("exp").value) || 0;
             let ur = parseInt(document.getElementById("ur").value) || 0;
             let ssr = parseInt(document.getElementById("ssr").value) || 0;
             let sr = parseInt(document.getElementById("sr").value) || 0;
             let skill = parseInt(document.getElementById("skill").value) || 0;
-            let diamond = parseInt(document.getElementById("diamond-monday").value) || 0;
+            let diamond = parseInt(document.getElementById("diamond-thursday").value) || 0;
             let weapon = parseInt(document.getElementById("weapon").value) || 0;
 
             // 660ごとに2.4点加算
@@ -101,10 +101,9 @@
                         (diamond * 30) + 
                         (weapon * 24000);
 
-            document.getElementById("result-monday").innerText = "点数: " + score;
+            document.getElementById("result-thursday").innerText = "点数: " + score;
         }
     </script>
 
 </body>
 </html>
-
