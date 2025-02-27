@@ -40,7 +40,7 @@
         <input type="number" id="radar" value="0">
 
         <label>ドローン戦闘データ（K）</label>
-        <input type="number" id="drone_data" value="0">
+        <input type="number" step="0.1" id="drone_data" value="0">
 
         <label>ドローンギア消費（個）</label>
         <input type="number" id="drone_gear" value="0">
@@ -79,26 +79,21 @@
         function calculateMondayScore() {
             let ap = parseInt(document.getElementById("ap").value) || 0;
             let radar = parseInt(document.getElementById("radar").value) || 0;
-            let drone_data = parseInt(document.getElementById("drone_data").value) || 0;
+            let drone_data = parseFloat(document.getElementById("drone_data").value) || 0;  // 小数対応
             let drone_gear = parseInt(document.getElementById("drone_gear").value) || 0;
             let diamond = parseInt(document.getElementById("diamond-monday").value) || 0;
-
-            // 小数点対応（parseFloatを使用）
-            let bread_iron = parseFloat(document.getElementById("bread_iron").value) || 0;
-            let gold = parseFloat(document.getElementById("gold").value) || 0;
-
+            let bread_iron = parseFloat(document.getElementById("bread_iron").value) || 0;  // 小数対応
+            let gold = parseFloat(document.getElementById("gold").value) || 0;  // 小数対応
             let chip_box = parseInt(document.getElementById("chip_box").value) || 0;
 
             let score = (ap * 360) + (radar * 2900) + (drone_data * 7200) + 
                         (drone_gear * 6000) + (diamond * 30) + 
                         (bread_iron * 480) + (gold * 800) + (chip_box * 2700);
 
-            // 数値を 1000 ごとにコンマ区切り
             document.getElementById("result-monday").innerText = "合計得点: " + score.toLocaleString();
         }
     </script>
 
 </body>
 </html>
-
 
