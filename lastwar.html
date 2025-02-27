@@ -61,7 +61,7 @@
 
         <button onclick="calculateMondayScore()">計算する</button>
 
-        <div id="result-monday" class="result">点数: 0</div>
+        <div id="result-monday" class="result">合計得点: 0</div>
     </div>
 
     <script>
@@ -93,10 +93,12 @@
                         (drone_gear * 6000) + (diamond * 30) + 
                         (bread_iron * 480) + (gold * 800) + (chip_box * 2700);
 
-            document.getElementById("result-monday").innerText = "点数: " + score;
+            // 数値を 1000 ごとにコンマ区切り
+            document.getElementById("result-monday").innerText = "合計得点: " + score.toLocaleString();
         }
     </script>
 
 </body>
 </html>
+
 
