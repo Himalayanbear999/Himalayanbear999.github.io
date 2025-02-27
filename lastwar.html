@@ -95,117 +95,124 @@
 
         <div id="result-tuesday" class="result">合計得点: 0</div>
     </div>
-
-<!-- 水曜日の計算機 -->
+!-- 水曜日の計算機 -->
     <div id="wednesday" class="content">
         <h3>水曜日の計算</h3>
-    
-  <label>科学研究1時間短縮（回数）</label>
-    <input type="number" id="science1h" value="0">
 
-    <label>科学研究1分短縮（回数）</label>
-    <input type="number" id="science1m" value="0">
+        <label>科学研究1時間短縮</label>
+        <input type="number" id="science1h" value="0">
 
-    <label>科学研究の戦力向上（ポイント）</label>
-    <input type="number" id="sciencePower" value="0">
+        <label>科学研究1分短縮</label>
+        <input type="number" id="science1m" value="0">
 
-    <label>知恵の勲章消費（個）</label>
-    <input type="number" id="medal" value="0">
+        <label>科学研究の戦力向上</label>
+        <input type="number" id="sciencePower" value="0">
 
-    <label>レーダークエスト（回）</label>
-    <input type="number" id="radar-wed" value="0">
+        <label>知恵の勲章消費（個）</label>
+        <input type="number" id="medal" value="0">
 
-    <label>ダイヤ購入（個）</label>
-    <input type="number" id="diamond-wednesday" value="0">
-
-    <label>Lv.1 ドローン部品箱（箱）</label>
-    <input type="number" id="drone1" value="0">
-
-    <label>Lv.2 ドローン部品箱（箱）</label>
-    <input type="number" id="drone2" value="0">
-
-    <label>Lv.3 ドローン部品箱（箱）</label>
-    <input type="number" id="drone3" value="0">
-
-    <label>Lv.4 ドローン部品箱（箱）</label>
-    <input type="number" id="drone4" value="0">
-
-    <label>Lv.5 ドローン部品箱（箱）</label>
-    <input type="number" id="drone5" value="0">
-
-    <label>Lv.6 ドローン部品箱（箱）</label>
-    <input type="number" id="drone6" value="0">
-
-    <label>Lv.7 ドローン部品箱（箱）</label>
-    <input type="number" id="drone7" value="0">
-
-    <br><br>
-
-    <button onclick="calculateWednesdayScore()">計算する</button>
-
-    <div id="result-wednesday" class="result">合計得点: 0
-    </div>
-
-   <!-- 木曜日の計算機 -->
-    <div id="thursday" class="content">
-        <h3>木曜日の計算</h3>
-
-        <label>英雄募集（回数）</label>
-        <input type="number" id="recruit" value="0">
-
-        <label>英雄Exp消費（合計値）</label>
-        <input type="number" id="exp" value="0">
-
-        <label>UR英雄かけら（枚）</label>
-        <input type="number" id="ur" value="0">
-
-        <label>SSR英雄かけら（枚）</label>
-        <input type="number" id="ssr" value="0">
-
-        <label>SR英雄かけら（枚）</label>
-        <input type="number" id="sr" value="0">
-
-        <label>スキルメダル（枚）</label>
-        <input type="number" id="skill" value="0">
+        <label>レーダークエスト（回）</label>
+        <input type="number" id="radar-wed" value="0">
 
         <label>ダイヤ購入（個）</label>
-        <input type="number" id="diamond-thursday" value="0">
+        <input type="number" id="diamond-wednesday" value="0">
 
-        <label>専用武装かけら（枚）</label>
-        <input type="number" id="weapon" value="0">
+        <label>Lv.1 ドローン部品箱（箱）</label>
+        <input type="number" id="drone1" value="0">
+
+        <label>Lv.2 ドローン部品箱（箱）</label>
+        <input type="number" id="drone2" value="0">
+
+        <label>Lv.3 ドローン部品箱（箱）</label>
+        <input type="number" id="drone3" value="0">
+
+        <label>Lv.4 ドローン部品箱（箱）</label>
+        <input type="number" id="drone4" value="0">
+
+        <label>Lv.5 ドローン部品箱（箱）</label>
+        <input type="number" id="drone5" value="0">
+
+        <label>Lv.6 ドローン部品箱（箱）</label>
+        <input type="number" id="drone6" value="0">
+
+        <label>Lv.7 ドローン部品箱（箱）</label>
+        <input type="number" id="drone7" value="0">
 
         <br><br>
 
-        <button onclick="calculateThursdayScore()">計算する</button>
+        <button onclick="calculateWednesdayScore()">計算する</button>
 
-        <div id="result-thursday" class="result">合計得点: 0</div>
+        <div id="result-wednesday" class="result">合計得点: 0</div>
     </div>
 
     <script>
         function showTab(day) {
-            document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-            document.querySelectorAll(".content").forEach(content => content.classList.remove("active"));
+            let tabs = document.querySelectorAll(".tab");
+            let contents = document.querySelectorAll(".content");
+
+            tabs.forEach(tab => tab.classList.remove("active"));
+            contents.forEach(content => content.classList.remove("active"));
+
             document.querySelector(`.tab[onclick="showTab('${day}')"]`).classList.add("active");
             document.getElementById(day).classList.add("active");
         }
 
-        function calculateThursdayScore() {
-            let recruit = parseInt(document.getElementById("recruit").value) || 0;
-            let exp = parseInt(document.getElementById("exp").value) || 0;
-            let ur = parseInt(document.getElementById("ur").value) || 0;
-            let ssr = parseInt(document.getElementById("ssr").value) || 0;
-            let sr = parseInt(document.getElementById("sr").value) || 0;
-            let skill = parseInt(document.getElementById("skill").value) || 0;
-            let diamond = parseInt(document.getElementById("diamond-thursday").value) || 0;
-            let weapon = parseInt(document.getElementById("weapon").value) || 0;
+        function calculateMondayScore() {
+            let ap = parseInt(document.getElementById("ap").value) || 0;
+            let radar = parseInt(document.getElementById("radar").value) || 0;
+            let drone_data = parseFloat(document.getElementById("drone_data").value) || 0;
+            let drone_gear = parseInt(document.getElementById("drone_gear").value) || 0;
+            let diamond = parseInt(document.getElementById("diamond-monday").value) || 0;
+            let bread_iron = parseFloat(document.getElementById("bread_iron").value) || 0;
+            let gold = parseFloat(document.getElementById("gold").value) || 0;
+            let chip_box = parseInt(document.getElementById("chip_box").value) || 0;
 
-            let expScore = Math.floor(exp / 660) * 2.4; // 660ごとに2.4点
+            let score = (ap * 360) + (radar * 2900) + (drone_data * 7200) + 
+                        (drone_gear * 6000) + (diamond * 30) + 
+                        (bread_iron * 480) + (gold * 800) + (chip_box * 2700);
 
-            let score = (recruit * 4350) + expScore + (ur * 24000) + 
-                        (ssr * 8400) + (sr * 2400) + (skill * 24) + 
-                        (diamond * 30) + (weapon * 24000);
+            document.getElementById("result-monday").innerText = "合計得点: " + score.toLocaleString();
+        }
 
-            document.getElementById("result-thursday").innerText = "合計得点: " + score.toLocaleString();
+        function calculateTuesdayScore() {
+            let build1h = parseInt(document.getElementById("build1h").value) || 0;
+            let build100m = parseInt(document.getElementById("build100m").value) || 0;
+            let power = parseInt(document.getElementById("power").value) || 0;
+            let trade = parseInt(document.getElementById("trade").value) || 0;
+            let mission = parseInt(document.getElementById("mission").value) || 0;
+            let survivor = parseInt(document.getElementById("survivor").value) || 0;
+            let diamond = parseInt(document.getElementById("diamond-tuesday").value) || 0;
+
+            let score = (build1h * 8700) + (build100m * 14500) + 
+                        (power * 28) + (trade * 280000) + 
+                        (mission * 210000) + (survivor * 4200) + 
+                        (diamond * 30);
+
+            document.getElementById("result-tuesday").innerText = "合計得点: " + score.toLocaleString();
+        }
+
+         function calculateWednesdayScore() {
+            let science1h = parseInt(document.getElementById("science1h").value) || 0;
+            let science1m = parseInt(document.getElementById("science1m").value) || 0;
+            let sciencePower = parseInt(document.getElementById("sciencePower").value) || 0;
+            let medal = parseInt(document.getElementById("medal").value) || 0;
+            let radar = parseInt(document.getElementById("radar-wed").value) || 0;
+            let diamond = parseInt(document.getElementById("diamond-wednesday").value) || 0;
+            let drone1 = parseInt(document.getElementById("drone1").value) || 0;
+            let drone2 = parseInt(document.getElementById("drone2").value) || 0;
+            let drone3 = parseInt(document.getElementById("drone3").value) || 0;
+            let drone4 = parseInt(document.getElementById("drone4").value) || 0;
+            let drone5 = parseInt(document.getElementById("drone5").value) || 0;
+            let drone6 = parseInt(document.getElementById("drone6").value) || 0;
+            let drone7 = parseInt(document.getElementById("drone7").value) || 0;
+
+            let score = (science1h * 8700) + (science1m * 145) + (sciencePower * 28) + 
+                        (medal * 720) + (radar * 29000) + (diamond * 30) + 
+                        (drone1 * 2640) + (drone2 * 7920) + (drone3 * 24000) + 
+                        (drone4 * 72000) + (drone5 * 216000) + (drone6 * 648000) + 
+                        (drone7 * 1944000);
+
+            document.getElementById("result-wednesday").innerText = "合計得点: " + score.toLocaleString();
         }
     </script>
 
