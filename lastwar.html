@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>連盟対決計算</title>
+    <title>スマホゲーム点数計算</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
         .tab { display: inline-block; padding: 10px 20px; margin: 5px; cursor: pointer; background: #ddd; border-radius: 5px; }
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <h2>連盟対決計算</h2>
+    <h2>スマホゲーム点数計算</h2>
 
     <!-- 曜日タブ -->
     <div>
@@ -49,10 +49,10 @@
         <input type="number" id="diamond-monday" value="0">
 
         <label>パンと鉄の採取（K）</label>
-        <input type="number" id="bread_iron" value="0">
+        <input type="number" step="0.1" id="bread_iron" value="0">
 
         <label>金の採取（K）</label>
-        <input type="number" id="gold" value="0">
+        <input type="number" step="0.1" id="gold" value="0">
 
         <label>チップ宝箱（金材料獲得）</label>
         <input type="number" id="chip_box" value="0">
@@ -62,38 +62,6 @@
         <button onclick="calculateMondayScore()">計算する</button>
 
         <div id="result-monday" class="result">点数: 0</div>
-    </div>
-
-    <!-- 火曜日の計算機 -->
-    <div id="tuesday" class="content">
-        <h3>火曜日の計算</h3>
-
-        <label>建造短縮（時）</label>
-        <input type="number" id="build1h" value="0">
-
-        <label>建造短縮（100分ごと、300分の場合3と入力）</label>
-        <input type="number" id="build100m" value="0">
-
-        <label>施設建設の獲得戦力</label>
-        <input type="number" id="power" value="0">
-
-        <label>UR貿易輸送車（回）</label>
-        <input type="number" id="trade" value="0">
-
-        <label>UR極秘任務（回）</label>
-        <input type="number" id="mission" value="0">
-
-        <label>生存者募集（回）</label>
-        <input type="number" id="survivor" value="0">
-
-        <label>ダイヤ購入（個）</label>
-        <input type="number" id="diamond-tuesday" value="0">
-
-        <br><br>
-
-        <button onclick="calculateTuesdayScore()">計算する</button>
-
-        <div id="result-tuesday" class="result">点数: 0</div>
     </div>
 
     <script>
@@ -114,8 +82,11 @@
             let drone_data = parseInt(document.getElementById("drone_data").value) || 0;
             let drone_gear = parseInt(document.getElementById("drone_gear").value) || 0;
             let diamond = parseInt(document.getElementById("diamond-monday").value) || 0;
-            let bread_iron = parseInt(document.getElementById("bread_iron").value) || 0;
-            let gold = parseInt(document.getElementById("gold").value) || 0;
+
+            // 小数点対応（parseFloatを使用）
+            let bread_iron = parseFloat(document.getElementById("bread_iron").value) || 0;
+            let gold = parseFloat(document.getElementById("gold").value) || 0;
+
             let chip_box = parseInt(document.getElementById("chip_box").value) || 0;
 
             let score = (ap * 360) + (radar * 2900) + (drone_data * 7200) + 
@@ -123,23 +94,6 @@
                         (bread_iron * 480) + (gold * 800) + (chip_box * 2700);
 
             document.getElementById("result-monday").innerText = "点数: " + score;
-        }
-
-        function calculateTuesdayScore() {
-            let build1h = parseInt(document.getElementById("build1h").value) || 0;
-            let build100m = parseInt(document.getElementById("build100m").value) || 0;
-            let power = parseInt(document.getElementById("power").value) || 0;
-            let trade = parseInt(document.getElementById("trade").value) || 0;
-            let mission = parseInt(document.getElementById("mission").value) || 0;
-            let survivor = parseInt(document.getElementById("survivor").value) || 0;
-            let diamond = parseInt(document.getElementById("diamond-tuesday").value) || 0;
-
-            let score = (build1h * 8700) + (build100m * 14500) + 
-                        (power * 28) + (trade * 280000) + 
-                        (mission * 210000) + (survivor * 4200) + 
-                        (diamond * 30);
-
-            document.getElementById("result-tuesday").innerText = "点数: " + score;
         }
     </script>
 
