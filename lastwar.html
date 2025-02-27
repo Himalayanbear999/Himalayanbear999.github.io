@@ -29,39 +29,156 @@
         <span class="tab" onclick="showTab('saturday')">土曜日</span>
     </div>
 
-    <!-- 木曜日の計算機 -->
-    <div id="thursday" class="content active">
-        <h3>木曜日の計算</h3>
+    <!-- 月曜日の計算機 -->
+    <div id="monday" class="content active">
+        <h3>月曜日の計算</h3>
 
-        <label>英雄募集（回数）</label>
-        <input type="number" id="recruit" value="0">
+        <label>AP消費数</label>
+        <input type="number" id="ap" value="0">
 
-        <label>英雄Exp消費（660以上の回数）</label>
-        <input type="number" id="exp" value="0">
+        <label>レーダークエスト</label>
+        <input type="number" id="radar" value="0">
 
-        <label>UR英雄かけら（枚）</label>
-        <input type="number" id="ur" value="0">
+        <label>ドローン戦闘データ（K）</label>
+        <input type="number" step="0.1" id="drone_data" value="0">
 
-        <label>SSR英雄かけら（枚）</label>
-        <input type="number" id="ssr" value="0">
-
-        <label>SR英雄かけら（枚）</label>
-        <input type="number" id="sr" value="0">
-
-        <label>スキルメダル（枚）</label>
-        <input type="number" id="skill" value="0">
+        <label>ドローンギア消費（個）</label>
+        <input type="number" id="drone_gear" value="0">
 
         <label>ダイヤ購入（個）</label>
-        <input type="number" id="diamond-thursday" value="0">
+        <input type="number" id="diamond-monday" value="0">
 
-        <label>専用武装かけら（枚）</label>
-        <input type="number" id="weapon" value="0">
+        <label>パンと鉄の採取（K）</label>
+        <input type="number" step="0.1" id="bread_iron" value="0">
+
+        <label>金の採取（K）</label>
+        <input type="number" step="0.1" id="gold" value="0">
+
+        <label>チップ宝箱（金材料獲得）</label>
+        <input type="number" id="chip_box" value="0">
 
         <br><br>
 
-        <button onclick="calculateThursdayScore()">計算する</button>
+        <button onclick="calculateMondayScore()">計算する</button>
 
-        <div id="result-thursday" class="result">合計得点: 0</div>
+        <div id="result-monday" class="result">合計得点: 0</div>
+    </div>
+
+    <!-- 火曜日の計算機 -->
+    <div id="tuesday" class="content">
+        <h3>火曜日の計算</h3>
+
+        <label>建造１時間短縮（回数）</label>
+        <input type="number" id="build1h" value="0">
+
+        <label>建造100分短縮（回数）</label>
+        <input type="number" id="build100m" value="0">
+
+        <label>施設建設で戦力獲得（戦力）</label>
+        <input type="number" id="power" value="0">
+
+        <label>UR貿易輸送車（回）</label>
+        <input type="number" id="trade" value="0">
+
+        <label>UR極秘任務（回）</label>
+        <input type="number" id="mission" value="0">
+
+        <label>生存者募集（回）</label>
+        <input type="number" id="survivor" value="0">
+
+        <label>ダイヤ購入（個）</label>
+        <input type="number" id="diamond-tuesday" value="0">
+
+        <br><br>
+
+        <button onclick="calculateTuesdayScore()">計算する</button>
+
+        <div id="result-tuesday" class="result">合計得点: 0</div>
+    </div>
+
+<!-- 水曜日の計算機 -->
+    <div id="wednesday" class="content">
+        <h3>水曜日の計算</h3>
+    
+  <label>科学研究1時間短縮（回数）</label>
+    <input type="number" id="science1h" value="0">
+
+    <label>科学研究1分短縮（回数）</label>
+    <input type="number" id="science1m" value="0">
+
+    <label>科学研究の戦力向上（ポイント）</label>
+    <input type="number" id="sciencePower" value="0">
+
+    <label>知恵の勲章消費（個）</label>
+    <input type="number" id="medal" value="0">
+
+    <label>レーダークエスト（回）</label>
+    <input type="number" id="radar-wed" value="0">
+
+    <label>ダイヤ購入（個）</label>
+    <input type="number" id="diamond-wednesday" value="0">
+
+    <label>Lv.1 ドローン部品箱（箱）</label>
+    <input type="number" id="drone1" value="0">
+
+    <label>Lv.2 ドローン部品箱（箱）</label>
+    <input type="number" id="drone2" value="0">
+
+    <label>Lv.3 ドローン部品箱（箱）</label>
+    <input type="number" id="drone3" value="0">
+
+    <label>Lv.4 ドローン部品箱（箱）</label>
+    <input type="number" id="drone4" value="0">
+
+    <label>Lv.5 ドローン部品箱（箱）</label>
+    <input type="number" id="drone5" value="0">
+
+    <label>Lv.6 ドローン部品箱（箱）</label>
+    <input type="number" id="drone6" value="0">
+
+    <label>Lv.7 ドローン部品箱（箱）</label>
+    <input type="number" id="drone7" value="0">
+
+    <br><br>
+
+    <button onclick="calculateWednesdayScore()">計算する</button>
+
+    <div id="result-wednesday" class="result">合計得点: 0
+    </div>
+
+   <!-- 木曜日の計算機 -->
+    <div id="thursday" class="content">
+        <h3>木曜日の計算</h3>
+   
+    <label>英雄募集（回数）</label>
+    <input type="number" id="recruit" value="0">
+
+    <label>英雄Exp消費（合計値）</label>
+    <input type="number" id="exp" value="0">
+
+    <label>UR英雄かけら（枚）</label>
+    <input type="number" id="ur" value="0">
+
+    <label>SSR英雄かけら（枚）</label>
+    <input type="number" id="ssr" value="0">
+
+    <label>SR英雄かけら（枚）</label>
+    <input type="number" id="sr" value="0">
+
+    <label>スキルメダル（枚）</label>
+    <input type="number" id="skill" value="0">
+
+    <label>ダイヤ購入（個）</label>
+    <input type="number" id="diamond-thursday" value="0">
+
+    <label>専用武装かけら（枚）</label>
+    <input type="number" id="weapon" value="0">
+
+    <br><br>
+
+    <button onclick="calculateThursdayScore()">計算する</button>
+
+    <div id="result-thursday" class="result">合計得点: 0
     </div>
 
     <script>
@@ -70,25 +187,6 @@
             document.querySelectorAll(".content").forEach(content => content.classList.remove("active"));
             document.querySelector(`.tab[onclick="showTab('${day}')"]`).classList.add("active");
             document.getElementById(day).classList.add("active");
-        }
-
-        function calculateThursdayScore() {
-            let recruit = parseInt(document.getElementById("recruit").value) || 0;
-            let exp = parseInt(document.getElementById("exp").value) || 0;
-            let ur = parseInt(document.getElementById("ur").value) || 0;
-            let ssr = parseInt(document.getElementById("ssr").value) || 0;
-            let sr = parseInt(document.getElementById("sr").value) || 0;
-            let skill = parseInt(document.getElementById("skill").value) || 0;
-            let diamond = parseInt(document.getElementById("diamond-thursday").value) || 0;
-            let weapon = parseInt(document.getElementById("weapon").value) || 0;
-
-            let expScore = Math.floor(exp / 660) * 2.4;
-
-            let score = (recruit * 4350) + expScore + (ur * 24000) + 
-                        (ssr * 8400) + (sr * 2400) + (skill * 24) + 
-                        (diamond * 30) + (weapon * 24000);
-
-            document.getElementById("result-thursday").innerText = "合計得点: " + score.toLocaleString();
         }
     </script>
 
