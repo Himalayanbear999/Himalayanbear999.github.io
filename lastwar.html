@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>連盟対決点数計算</title>
+    <title>スマホゲーム点数計算</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
         .tab { display: inline-block; padding: 10px 20px; margin: 5px; cursor: pointer; background: #ddd; border-radius: 5px; }
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <h2>連盟対決点数計算</h2>
+    <h2>スマホゲーム点数計算</h2>
 
     <!-- 曜日タブ -->
     <div>
@@ -57,7 +57,11 @@
         <label>専用武装かけら（枚）</label>
         <input type="number" id="weapon" value="0">
 
+        <!-- ボタンの前に改行を挿入 -->
+        <br><br>
+
         <button onclick="calculateMondayScore()">計算する</button>
+
         <div id="result-monday" class="result">点数: 0</div>
     </div>
 
@@ -74,7 +78,7 @@
             document.getElementById(day).classList.add("active");
         }
 
-        // 月曜日の点数計算（英雄Expの計算を修正）
+        // 月曜日の点数計算
         function calculateMondayScore() {
             let recruit = parseInt(document.getElementById("recruit").value) || 0;
             let exp = parseInt(document.getElementById("exp").value) || 0;
@@ -85,7 +89,7 @@
             let diamond = parseInt(document.getElementById("diamond-monday").value) || 0;
             let weapon = parseInt(document.getElementById("weapon").value) || 0;
 
-            // 660ごとに2.4点加算（小数点の誤差を防ぐため Math.floor で切り捨て）
+            // 660ごとに2.4点加算
             let expScore = Math.floor(exp / 660) * 2.4;
 
             let score = (recruit * 4350) + 
@@ -103,3 +107,4 @@
 
 </body>
 </html>
+
